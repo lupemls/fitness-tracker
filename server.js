@@ -19,7 +19,29 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { use
 
 
 //API ROUTES
+app.get("/api/workouts", (req,res) => {
+    db.Workout.find({})
+        .then(data => {
+            console.log(data);
+            res.send(data);
+        });
+});
 
+app.post("/api/workouts", (req,res) => {
+    db.Workout.create({db})
+        .then(data => {
+            console.log(data);
+            res.send(data);
+        });
+});
+app.get("/api/workouts/range", (req,res) => {
+    db.Workout.find({})
+        .then(data => {
+            console.log(data);
+            res.send(data);
+        });
+});
+app.get("/api/workouts/:id")
 
 //=============================================
 
